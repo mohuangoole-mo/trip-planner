@@ -7,6 +7,8 @@
    https://www.funliday.com/m_NjVlOWJmYzAzZmFkYzhjNWY5YWYxNWQ30/trips/6a521a879c310366b611b82b
    地址、經緯度為依地名查找的概略值，未逐一人工核對，verify 全部設 true。
    花費與人數未在 Funliday 頁面提供，依規則不自行編造，cost 全部留 null、
+   實際花費由 Muse 依分帳紀錄每晚 00:00 同步寫入（cost.per 一律為 group，
+   即該筆實際支付總額；時間為估計的新增項目標 verify: true）。
    travelers 先用「2 位大人」佔位，請使用者確認後再改。
    Funliday 原頁面也標註「望遠市場」「奉恩寺」「樂天超市」三處描述誤植縣市，地址本身仍可用。
    所有地名、地址已全部改成中文，不保留韓文原文，方便使用者直接閱讀。 */
@@ -23,16 +25,25 @@ window.DEFAULT_TRIP = {
   items: [
     { id: "d1-depart", date: "2026-11-11", start: "18:00", duration: 5, category: "flight", name: "桃園機場第一航廈 出境", address: "台灣 33758 桃園市大園區第一航廈出境道路", lat: 25.0797, lng: 121.2321, cost: null, note: "航班資訊待補", locked: true, verify: true },
     { id: "d1-incheon", date: "2026-11-11", start: "23:30", duration: 60, category: "transit", name: "仁川國際機場 第一交通中心", address: "南韓 仁川 中區 機場路 271 機場鐵道地下1樓", lat: 37.4489, lng: 126.4505, cost: null, note: "仁川機場交通中心", locked: false, verify: true },
+    { id: "exp-3", date: "2026-11-11", start: "23:35", duration: 15, category: "food", name: "機場宵夜快餐", address: "南韓 仁川 中區 機場路 271", lat: 37.4489, lng: 126.4505, cost: { amount: 14600, currency: "KRW", per: "group", estimated: false }, note: "多多付，兩人平分；時間為估計", locked: false, verify: true },
+    { id: "exp-4", date: "2026-11-11", start: "23:55", duration: 60, category: "transit", name: "夜間巴士", address: "仁川國際機場 → 新村站", lat: 37.4489, lng: 126.4505, cost: { amount: 34000, currency: "KRW", per: "group", estimated: false }, note: "多多付，兩人平分，每人 ₩17,000；時間為估計", locked: false, verify: true },
     { id: "d1-sinchon", date: "2026-11-12", start: "01:18", duration: 60, category: "stay", name: "新村站", address: "南韓 首爾", lat: 37.5559, lng: 126.9368, cost: null, note: "抵達住宿區域", locked: false, verify: true },
 
     { id: "d2-start", date: "2026-11-12", start: "10:00", duration: 0, category: "transit", name: "新村站 出發", address: "南韓 首爾", lat: 37.5559, lng: 126.9368, cost: null, note: "", locked: false, verify: false },
+    { id: "exp-5", date: "2026-11-12", start: "10:00", duration: 30, category: "food", name: "早餐 辣年糕跟飯卷", address: "南韓 首爾", lat: 37.5559, lng: 126.9368, cost: { amount: 9000, currency: "KRW", per: "group", estimated: false }, note: "多多付，兩人平分；時間為估計", locked: false, verify: true },
     { id: "d2-mangwon", date: "2026-11-12", start: "10:15", duration: 60, category: "sight", name: "望遠市場", address: "南韓 首爾 麻浦區 望遠路8街7號", lat: 37.5563, lng: 126.9029, cost: null, note: "電話 +8223353591；Funliday 原頁面誤植為台北市", locked: false, verify: true },
+    { id: "exp-6", date: "2026-11-12", start: "11:30", duration: 15, category: "transit", name: "儲值地鐵卡", address: "南韓 首爾 新村站", lat: 37.5559, lng: 126.9368, cost: { amount: 20000, currency: "KRW", per: "group", estimated: false }, note: "多多代付，我的地鐵卡；時間為估計", locked: false, verify: true },
     { id: "d2-gangnam", date: "2026-11-12", start: "11:55", duration: 120, category: "sight", name: "江南站", address: "南韓 首爾 德黑蘭路", lat: 37.4979, lng: 127.0276, cost: null, note: "", locked: false, verify: true },
     { id: "d2-lotte-museum", date: "2026-11-12", start: "14:10", duration: 60, category: "sight", name: "樂天美術館", address: "南韓 首爾 松坡區 奧林匹克路300號 樂天世界大廈7樓", lat: 37.5125, lng: 127.1025, cost: null, note: "電話 +8215447744", locked: false, verify: true },
+    { id: "exp-7", date: "2026-11-12", start: "14:27", duration: 30, category: "food", name: "三松麵包店 麵包咖啡", address: "南韓 首爾 江南區 永東大路513號 COEX Mall B1", lat: 37.5126, lng: 127.0590, cost: { amount: 14300, currency: "KRW", per: "group", estimated: false }, note: "多多付，兩人平分", locked: false, verify: true },
     { id: "d2-bongeunsa", date: "2026-11-12", start: "15:20", duration: 60, category: "sight", name: "奉恩寺", address: "南韓 首爾 江南區 奉恩寺路531號", lat: 37.5149, lng: 127.0582, cost: null, note: "電話 +82232184800；網站 bongeunsa.org；Funliday 原頁面誤植為新北市", locked: false, verify: true },
+    { id: "exp-9", date: "2026-11-12", start: "16:00", duration: 15, category: "food", name: "GS25 便利商店 飲料", address: "南韓 首爾 江南區 永東大路513號 COEX", lat: 37.5126, lng: 127.0590, cost: { amount: 5100, currency: "KRW", per: "group", estimated: false }, note: "多多付，兩人平分；時間為估計", locked: false, verify: true },
     { id: "d2-coex", date: "2026-11-12", start: "16:34", duration: 90, category: "sight", name: "COEX Mall 星際城購物中心", address: "南韓 首爾 江南區 永東大路513號", lat: 37.5126, lng: 127.0590, cost: null, note: "電話 +82260025300；網站 coex.co.kr", locked: false, verify: true },
     { id: "d2-outlet", date: "2026-11-12", start: "18:14", duration: 60, category: "sight", name: "現代City Outlet 東大門店", address: "南韓 首爾 清溪川路", lat: 37.5663, lng: 127.0094, cost: null, note: "", locked: false, verify: true },
-    { id: "d2-dinner", date: "2026-11-12", start: "19:40", duration: 75, category: "food", name: "Musso 弘大店", address: "南韓 首爾 麻浦區 於乙馬堂路131號", lat: 37.5520, lng: 126.9238, cost: null, note: "電話 +8223363994", locked: false, verify: true },
+    { id: "exp-8", date: "2026-11-12", start: "19:00", duration: 30, category: "food", name: "弘大超市 優格、麝香葡萄", address: "南韓 首爾 麻浦區 弘大", lat: 37.5520, lng: 126.9238, cost: { amount: 7480, currency: "KRW", per: "group", estimated: false }, note: "多多付，兩人平分；時間為估計", locked: false, verify: true },
+    { id: "d2-dinner", date: "2026-11-12", start: "19:40", duration: 75, category: "food", name: "Musso 弘大店", address: "南韓 首爾 麻浦區 於乙馬堂路131號", lat: 37.5520, lng: 126.9238, cost: { amount: 105400, currency: "KRW", per: "group", estimated: false }, note: "電話 +8223363994；三人用餐，我負擔兩人份（多多付）", locked: false, verify: true },
+    { id: "exp-11", date: "2026-11-12", start: "22:19", duration: 15, category: "food", name: "弘大超市 水梨", address: "南韓 首爾 麻浦區 弘大", lat: 37.5520, lng: 126.9238, cost: { amount: 2500, currency: "KRW", per: "group", estimated: false }, note: "多多付，兩人平分", locked: false, verify: true },
+    { id: "exp-12", date: "2026-11-12", start: "22:42", duration: 15, category: "food", name: "GS25 咖啡糖零食", address: "南韓 首爾 麻浦區 新村路12街15號", lat: 37.5520, lng: 126.9238, cost: { amount: 16400, currency: "KRW", per: "group", estimated: false }, note: "多多私人消費", locked: false, verify: true },
 
     { id: "d3-start", date: "2026-11-13", start: "09:30", duration: 0, category: "transit", name: "新村站 出發", address: "南韓 首爾", lat: 37.5559, lng: 126.9368, cost: null, note: "", locked: false, verify: false },
     { id: "d3-mmca", date: "2026-11-13", start: "09:55", duration: 120, category: "sight", name: "國立現代美術館 首爾館", address: "南韓 首爾 鍾路區 三清洞 三清路30號", lat: 37.5796, lng: 126.9800, cost: null, note: "電話 +82237019500", locked: false, verify: true },
